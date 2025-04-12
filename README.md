@@ -9,8 +9,7 @@ The Home Inventory Management System is a full-stack MERN (MongoDB, Express.js, 
 - **Frontend:** React.js, Tailwind CSS, Headless UI, Heroicons
 - **Backend:** Node.js, Express.js, Mongoose (MongoDB ODM)
 - **Database:** MongoDB
-- **Authentication & State:** (optional - add if implemented)
-- **Date Handling:** JavaScript Date API
+- **Authentication & State:** None
 
 ---
 
@@ -36,9 +35,24 @@ Root/
 │   ├── models/     # Mongoose schemas (Item, ItemTransaction)
 │   ├── controllers/
 │   ├── routes/
-│   └── .env        # Environment variables
+│   └── .env        # Environment variables in '.env' file
 ├── frontend/       # React frontend
-│   ├── components/ # ReportSection1–6, Modals, Tables
-│   ├── pages/
+│   ├── src/components/Inventory/User/Item # ReportSection1–6 , other components
+│   ├── public/
 │   └── tailwind.config.js
 ```
+
+---
+
+## 🛠️ How to run the project
+
+- **1:** Download the project
+- **2:** Create a '.env' file in backend directory.
+- **3:** Enter Follwing Details in that file and save it.
+
+PORT=5000
+MONGO_URL= your_mongo_DB_URL
+DEV_MODE=development
+
+- **4:** Go To Backend Directory then run follwing commands. "npm install" , "npm start"
+- **5:** Go To Frontend Directory then run follwing commands. "npm install" , "npm start"
