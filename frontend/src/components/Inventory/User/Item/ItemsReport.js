@@ -22,19 +22,22 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Remaining sections stacked */}
+      {/* Section 3 */}
       <div className="mb-6">
         <ReportSection3 />
       </div>
 
-      <div className="mb-6">
-        <ReportSection4 />
+      {/* Section 4 and 5 side-by-side */}
+      <div className="flex flex-col md:flex-row md:space-x-6 mb-6">
+        <div className="md:w-1/2 mb-6 md:mb-0">
+          <ReportSection4 />
+        </div>
+        <div className="md:w-1/2">
+          <ReportSection5 />
+        </div>
       </div>
 
-      <div className="mb-6">
-        <ReportSection5 />
-      </div>
-
+      {/* Section 6 */}
       <div className="mb-6">
         <ReportSection6 />
       </div>

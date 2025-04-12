@@ -65,7 +65,8 @@ const ReportSection3 = () => {
       )}
 
       {isExpanded && (
-        <div className="space-y-4">
+        <div className="flex flex-col items-center">
+        <div className="space-y-4 w-full ">
           <div className="flex gap-4">
             <div className="flex-1">
               <label htmlFor="startDate" className="block text-sm text-gray-700">
@@ -136,7 +137,7 @@ const ReportSection3 = () => {
                     <td className="p-2">{selectedItem.itemDetails.desc}</td>
                   </tr>
                   <tr className="border-b">
-                    <td className="p-2 font-medium">Total Decreased:</td>
+                    <td className="p-2 font-medium">Total Consumption:</td>
                     <td className="p-2">{selectedItem.totalDecreased}</td>
                   </tr>
                   <tr className="border-b">
@@ -151,6 +152,7 @@ const ReportSection3 = () => {
               </table>
             </div>
           )}
+        </div>
         </div>
       )}
     </div>

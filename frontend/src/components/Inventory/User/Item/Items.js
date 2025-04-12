@@ -179,7 +179,7 @@ const Items = () => {
         <td className="border border-gray-300 px-1 py-1 text-center">{item.price}</td>
         <td className="border border-gray-300 px-1 py-1 text-center">{item.expDate ? new Date(item.expDate).toLocaleDateString() : 'N/A'}</td>
         <td className="border border-gray-300 px-1 py-1 text-center">{new Date(item.purchasedDate).toLocaleDateString()}</td>
-        <td className="border border-gray-300 px-1 py-1 flex justify-center gap-2">
+        <td className="px-1 py-1 flex justify-center gap-2">
           <button onClick={() => openActionModal(item._id, "increase")} className="text-white px-0.1 py-1 rounded hover:bg-blue-200">
           <SolidPlusCircleIcon className="h-7 w-7 text-blue-500" />
           </button>
