@@ -47,47 +47,79 @@ const AddItemModal = ({ closeModal, items, setItems, setFilteredItems }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const quantity = formData.quantity;
+  
+    // If changing UOM to "UNITS", check quantity is a whole number
+    if (name === "unitOfMeasure" && value === "UNITS" && quantity.trim() != "") {
+      const integerRegex = /^\d+$/;
+      if (!integerRegex.test(quantity)) {
+        Swal.fire({
+          title: "Invalid Input",
+          html: "Quantity must be a positive whole number when UOM is 'UNITS'.",
+          icon: "warning",
+          confirmButtonText: "OK",
+        });
+        return;
+      }
+    }
+  
+    // Update form state
     setFormData({
       ...formData,
       [name]: value,
     });
   };
-
-
-const handleNumberInputChange = (e) => {
-  const { name, value } = e.target;
-
-  // Allow empty input to avoid blocking typing
-  if (value === "") {
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    return;
-  }
-
-  // Regex for positive numbers (including decimals)
-  const positiveNumberRegex = /^\d+(\.\d+)?$/;
-
-  if (!positiveNumberRegex.test(value)) {
-    Swal.fire({
-      title: "Invalid Input",
-      html: `${name === 'quantity'
-        ? 'Quantity'
-        : name === 'price'
-        ? 'Price'
-        : 'Reorder Level'} must be a positive number.`,
-      icon: "warning",
-      confirmButtonText: "OK",
-    });
-    return;
-  }
   
 
-  // If valid, update form
-  setFormData((prev) => ({
-    ...prev,
-    [name]: value
-  }));
-};
 
+  const handleNumberInputChange = (e) => {
+    const { name, value } = e.target;
+  
+    // Allow empty input to not block typing
+    if (value === "") {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+      return;
+    }
+  
+    const uom = formData.unitOfMeasure; // Access current unit of measure
+  
+    // If UOM is "units", allow only whole numbers
+    if (uom === "UNITS") {
+      const integerRegex = /^\d+$/;
+      if (!integerRegex.test(value)) {
+        Swal.fire({
+          title: "Invalid Input",
+          html: "Quantity must be a  Positive whole number when UOM is 'units'.",
+          icon: "warning",
+          confirmButtonText: "OK",
+        });
+        return;
+      }
+    } else {
+      // For other UOMs, allow decimals
+      const positiveNumberRegex = /^\d+(\.\d+)?$/;
+      if (!positiveNumberRegex.test(value)) {
+        Swal.fire({
+          title: "Invalid Input",
+          html: `${name === 'quantity'
+            ? 'Quantity'
+            : name === 'price'
+            ? 'Price'
+            : 'Reorder Level'} must be a positive number.`,
+          icon: "warning",
+          confirmButtonText: "OK",
+        });
+        return;
+      }
+    }
+  
+    // If valid, update form
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+  
 
   const generateHexCode = () => {
     return Math.floor(Math.random() * 0xFFFFF).toString(16).padStart(5, '0').toUpperCase();
@@ -233,6 +265,7 @@ const handleNumberInputChange = (e) => {
                 className="w-full p-1 text-sm border rounded"
                 required
                 min="0"
+                step="any"
               />
             </div>
           </div>
@@ -310,6 +343,7 @@ const handleNumberInputChange = (e) => {
               className="w-full p-1 text-sm border rounded"
               required
               min="0"
+              step="any"
               placeholder="Minimum quantity before restocking is needed"
             />
           </div>
