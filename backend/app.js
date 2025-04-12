@@ -14,7 +14,7 @@ app.use(cors()); // You can restrict origins here if needed
 
 // Health check route
 app.get("/", (req, res) => {
-  res.send("🏡 Home Inventory API is running!");
+  res.send("Home Inventory API is running!");
 });
 
 // API Routes
@@ -35,7 +35,7 @@ mongoose
     console.log("✅ Connected to MongoDB");
 
     app.listen(PORT, () => {
-      console.log(`🚀 Server running in ${DEV_MODE} mode on port ${PORT}`);
+      console.log(`Server running in ${DEV_MODE} mode on port ${PORT}`);
     });
   })
   .catch((err) => {
