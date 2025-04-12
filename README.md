@@ -54,7 +54,7 @@ PORT=5000<br>
 MONGO_URL= your_mongo_DB_URL<br>
 DEV_MODE=development<br>
 
-- **4:** Go To Backend Directory then run follwing commands. 
-"npm install" <br>> "npm start"
-- **5:** Go To Frontend Directory then run follwing commands. 
-"npm install" <br>> "npm start"
+- **4:** Go To Backend Directory then run follwing commands. <br>
+  "npm install" <br> "npm start"
+- **5:** Go To Frontend Directory then run follwing commands. <br>
+  "npm install" <br> "npm start"
