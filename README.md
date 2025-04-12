@@ -50,9 +50,9 @@ Root/
 - **2:** Create a '.env' file in backend directory.
 - **3:** Enter Follwing Details in that file and save it.
 
-PORT=5000
-MONGO_URL= your_mongo_DB_URL
-DEV_MODE=development
+PORT=5000<br>
+MONGO_URL= your_mongo_DB_URL<br>
+DEV_MODE=development<br>
 
 - **4:** Go To Backend Directory then run follwing commands. "npm install" , "npm start"
 - **5:** Go To Frontend Directory then run follwing commands. "npm install" , "npm start"
