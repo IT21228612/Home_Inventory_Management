@@ -1,3 +1,8 @@
+# Ignore node_modules in nested folders
+HomeStock/backend/node_modules/
+HomeStock/frontend/node_modules/
+
+
 # Logs
 logs
 *.log
