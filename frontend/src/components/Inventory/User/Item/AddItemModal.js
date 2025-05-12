@@ -38,8 +38,9 @@ const AddItemModal = ({ closeModal, items, setItems, setFilteredItems }) => {
     "Furniture",
   ];
   
-
-  const currentUser = { // The unique user ID //used for now
+// The unique user ID 
+//used for now 
+  const currentUser = { 
     id: '123456',
     name: 'John Doe',
     email: 'john@example.com',
